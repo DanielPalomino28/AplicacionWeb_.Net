@@ -1,0 +1,188 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reserva escenarios INDER</title>
+    <link href="Estilos/css/all.min.css" rel="stylesheet" />
+    <!-- daterange picker -->
+    <link href="Estilos/daterangepicker.css" rel="stylesheet" />
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link href="Estilos/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Select2 -->
+    <link href="Estilos/select2.min.css" rel="stylesheet" />
+    <link href="Estilos/select2-bootstrap4.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12" id="dvMenu">
+                </div>
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">RESERVA DE ESCENARIOS DEPORTIVOS INDER</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form id="frmReservas">
+                            <div class="card-body">
+                                <div class="card card-gray-dark">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Datos de la reserva</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <!-- Datos de entrada -->
+                                            <!-- Documento del cliente -->
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtDocumentoCliente">Documento:</label>
+                                                    <input type="text" class="form-control" id="txtDocumentoCliente" placeholder="Ingrese su número de documento.">
+                                                </div>
+                                            </div>
+
+                                            <!-- Nombre del cliente -->
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtNombreCliente">Nombre completo</label>
+                                                    <input type="text" class="form-control" id="txtNombreCliente" placeholder="Ingrese su nombre completo.">
+                                                </div>
+                                            </div>
+                                            <!-- Día a reservar -->
+                                            
+                                            <div class="form-group col-md-3">
+                                                <label for="txtFecha">Día a reservar</label>
+                                                <select name="dias" id="txtFecha" class="form-control">
+                                                    <option value="Lunes">Lunes</option>
+                                                    <option value="Martes">Martes</option>
+                                                    <option value="Miércoles">Miércoles</option>
+                                                    <option value="Jueves">Jueves</option>
+                                                    <option value="Viernes">Viernes</option>
+                                                    <option value="Sábado">Sábado</option>
+                                                    <option value="Domingo">Domingo</option>
+                                                    <option value="Festivo">Festivo</option>
+                                                </select>
+                                            </div>
+                                           
+                                            <!-- Cantidad de horas -->
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <label for="txtNumeroHoras">Cantidad de horas</label>
+                                                    <input type="number" class="form-control" id="txtNumeroHoras" placeholder="Horas a reservar.">
+                                                </div>
+                                            </div>
+                                            <!-- Boton calcular valores de la reserva -->
+                                            <div class="col-md-2">
+                                                <div class="form-group">
+                                                    <button type="button" id="btnMostrarValores" class="btn-block btn-lg btn-dark">Mostrar valores</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-secondary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Valores de la reserva</h3>
+                                    </div>
+                                    <!-- Datos de Salida -->
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- Valor de la reserva sin descuento -->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorSinDescuento">Valor sin decuento:</label>
+                                                <input type="text" class="form-control" id="txtValorSinDescuento" placeholder="Valor de la reserva sin descuento." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Valor descuento -->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorDescuento">Valor descuento</label>
+                                                <input type="text" class="form-control" id="txtValorDescuento" placeholder="Valor descuento." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Valor a pagar -->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorAPagar">Valor a pagar</label>
+                                                <input type="text" class="form-control" id="txtValorAPagar" placeholder="Valor a pagar." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Boton reservar -->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <button type="button" id="btnReservar" class="btn-block btn-lg btn-primary">Reservar</button>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div id="dvMensaje" class=""></div>
+                                </div>
+                            </div>
+                        </form>                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="../Scripts/select2.min.js"></script>
+    <!-- InputMask -->
+    <script src="../Scripts/moment.min.js"></script>
+    <script src="../Scripts/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="../Scripts/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="../Scripts/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../Scripts/adminlte.js"></script>
+    <script>$(function () {
+            $("#dvMenu").load("../Paginas/Menu.html")
+            //Select2
+            $('#cboPaises').select2();
+            $('#cboEstados').select2();
+
+            //Select 2 con funciones especiales
+            $('#cboMultiple').select2({
+                theme: 'bootstrap4'
+            })
+            //Calendario
+            $('#dtmFecha').datetimepicker({
+                format: 'L'
+            });
+            //Fecha y hora
+            $('#dthFechaHora').datetimepicker({ icons: { time: 'far fa-clock' } });
+            $('[data-mask]').inputmask();
+            //Rango de horas
+            $('#RangoFechas').daterangepicker();
+            //Rango de fechas con hora
+            $('#RangoFechaHora').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY hh:mm A'
+                }
+            });
+            //Timepicker
+            $('#tmHoraInicio').datetimepicker({
+                format: 'LT'
+            });
+        })</script>
+    <!-- Scripts página -->
+    <script src="Scripts/Reservas_Inder.js"></script>
+</body>
+</html>
