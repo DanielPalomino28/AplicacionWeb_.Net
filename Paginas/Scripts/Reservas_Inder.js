@@ -5,40 +5,56 @@
 
 });
 
-function CalcularValores() {
-    //Capturar datos de entrada
+async function CalcularValores() {
+    // Capturar datos de entrada
     let Documento = $("#txtDocumentoCliente").val();
     let Nombre = $("#txtNombreCliente").val();
-    let FechaReserva = $("#txtFecha").val();
+    let DiaReserva = $("#txtFecha").val();
     let Horas = $("#txtNumeroHoras").val();
 
-    //Confirmar que si se estén tomando los datos
-        alert("Documento: " + Documento + "\n"+
-            "Nombre: " + Nombre + "\n" +
-           "Fecha reserva: " + FechaReserva + "\n" +
-           "Cantidad de horas: " + Horas
-           );
+    // Confirmar que se estén tomando los datos
+    //alert("CantidadHoras: " + Horas + "\n" +
+    //    "Documento Cliente: " + Documento + "\n" +
+    //    "Nombre Cliente: " + Nombre + "\n" +
+    //    "DiaSemana: " + DiaReserva);
 
-    //Json (Nombre:Valor)
-    let DatosReserva{
-        DocumentoCliente: Documento,
-        NombreCliente: Nombre,
-        DiaSemana: FechaReserva,
-        CantidadHoras: Horas,
-    }
+    //mostrar Error
+    
 
-    //Invocar el servicio con ajax, utilizando la función fetch de javascript
-    const RespuestaServicio = await fetch("http://localhost:62392/api/Reserva", {
-        method: "POST",
-        mode: "cors",
-        headers: {
-            "Content-Type:": "application/json"
+    // JSON (Nombre: Valor)
+    let DatosReserva = {
+        "CantidadHoras": Horas,
+        "DocumentoCliente": Documento,
+        "NombreCliente": Nombre,
+        "DiaSemana": DiaReserva
+    };
+
+    try {
+        const RespuestaServicio = await fetch("http://localhost:62392/api/Reserva", {
+            // Url a tu servicio
+            method: "POST",
+            mode: "cors",
+            headers: {
+                "Content-Type": "application/json" // Cambiado ":" por "="
+            },
+            body: JSON.stringify(DatosReserva)
+        });
+        
+        // Lee la respuesta y guárdala en una variable
+        const Respuesta = await RespuestaServicio.json();
+        if (Respuesta.Error != "") {
+            $("#dvMensaje").html(Respuesta.Error);
+            $("#txtValorSinDescuento").val("");
+            $("#txtValorDescuento").val("");
+            $("#txtValorAPagar").val("")
         }
-        body: JSON.stringify(DatosReserva)
-    });
-    //Leo la respuesta y la guardo en una variable
-    const Respuesta = await RespuestaServicio.json();
-    $("#txtValorSinDescuento").val(Respuesta.ValorReservaSinDescuento);
-    $("#txtValorDescuento").val(Respuesta.ValorDescuento);
-    $("#txtValorAPagar").val(Respuesta.ValorAPagar);
-};
+        else {
+            $("#txtValorSinDescuento").val(Respuesta.ValorReservaSinDescuento);
+            $("#txtValorDescuento").val(Respuesta.ValorDescuento);
+            $("#txtValorAPagar").val(Respuesta.ValorAPagar)
+            $("#dvMensaje").html(""); 
+        }
+    } catch (error) {
+        $("#dvMensaje").html(error);
+    }
+}
