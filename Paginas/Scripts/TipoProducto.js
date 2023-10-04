@@ -20,7 +20,7 @@ async function Consultar() {
     let Codigo = $("#txtCodigo").val();
     //Invocamos el servicio a través del fetch, usando el método fetch de javascript
     try {
-        const Respuesta = await fetch("http://localhost:57117/api/TipoProducto?Codigo=" + Codigo,
+        const Respuesta = await fetch("http://localhost:62392/api/TipoProducto?Codigo=" + Codigo,
             {
                 method: "GET",
                 mode: "cors",
@@ -51,7 +51,7 @@ async function EjecutarComandos(Comando) {
     }
     //Invocamos el servicio a través del fetch, usando el método fetch de javascript
     try {
-        const Respuesta = await fetch("http://localhost:57117/api/TipoProducto",
+        const Respuesta = await fetch("http://localhost:62392/api/TipoProducto",
             {
                 method: Comando,
                 mode: "cors",
