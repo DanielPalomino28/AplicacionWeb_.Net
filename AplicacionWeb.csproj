@@ -124,6 +124,10 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Paginas\Empleado.html" />
+    <Content Include="Paginas\Scripts\Empleado.js" />
+    <Content Include="Paginas\Scripts\TipoProducto.js" />
+    <Content Include="Paginas\SeguroVehiculos.html" />
     <Content Include="Paginas\Estilos\adminlte.css" />
     <Content Include="Paginas\Estilos\adminlte.min.css" />
     <Content Include="Paginas\Estilos\all.min.css" />
@@ -163,10 +167,16 @@
     <Content Include="Paginas\Pagina1.html" />
     <Content Include="Paginas\Pagina2.html" />
     <Content Include="Paginas\PaginaBase.html" />
+    <Content Include="Paginas\Scripts\SeguroVehiculos.js" />
+    <Content Include="Paginas\Scripts\CafeteriaITM.js" />
+    <Content Include="Paginas\Scripts\ServiciosEpm.js" />
+    <Content Include="Paginas\CafeteriaITM.html" />
+    <Content Include="Paginas\ServiciosEpm.html" />
     <Content Include="Paginas\Reservas_Inder.html" />
     <Content Include="Paginas\Scripts\Pagina1.js" />
     <Content Include="Paginas\Scripts\Pagina2.js" />
     <Content Include="Paginas\Scripts\Reservas_Inder.js" />
+    <Content Include="Paginas\TipoProducto.html" />
     <Content Include="Scripts\adminlte.js" />
     <Content Include="Scripts\adminlte.min.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />

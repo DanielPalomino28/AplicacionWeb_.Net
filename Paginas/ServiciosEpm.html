@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Consumo de Servicios EPM</title>
+    <link href="Estilos/css/all.min.css" rel="stylesheet" />
+    <!-- daterange picker -->
+    <link href="Estilos/daterangepicker.css" rel="stylesheet" />
+    <!-- Tempusdominus Bootstrap 4 -->
+    <link href="Estilos/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+    <!-- Select2 -->
+    <link href="Estilos/select2.min.css" rel="stylesheet" />
+    <link href="Estilos/select2-bootstrap4.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="Estilos/adminlte.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition sidebar-mini">
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-12" id="dvMenu">
+                </div>
+                <div class="col-md-12">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">CONSUMO DE SERVICIOS EPM</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form id="frmServicios">
+                            <div class="card-body">
+                                <div class="card card-gray-dark">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Consumos por servicio</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="row">
+                                            <!-- Datos de entrada -->
+                                            <!-- Consumo Agua-->
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtConsumoAgua">Consumo en el servicio de agua</label>
+                                                    <input type="number" class="form-control" id="txtConsumoAgua" placeholder="Ingrese el consumo de agua en m³">
+                                                </div>
+                                            </div>
+                                            <!-- Consumo Gas-->
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtConsumoGas">Consumo en el servicio de gas</label>
+                                                    <input type="number" class="form-control" id="txtConsumoGas" placeholder="Ingrese el consumo de gas en m³">
+                                                </div>
+                                            </div>
+                                            <!-- Consumo Energia-->
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <label for="txtConsumoEnergia">Consumo en el servicio de energía</label>
+                                                    <input type="number" class="form-control" id="txtConsumoEnergia" placeholder="Ingrese el consumo en Kw">
+                                                </div>
+                                            </div>
+
+
+                                            <!-- Boton calcular valores del consumo -->
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+
+                                                    <button type="button" id="btnCalcularValores" class="btn-block btn-lg btn-dark">Calcular valores</button>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card card-secondary">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Valores consumos</h3>
+                                    </div>
+                                    <!-- Datos de Salida -->
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- Valor del servicio de Agua-->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorTotalAgua">Valor del consumo del servicio de agua:</label>
+                                                <input type="text" class="form-control" id="txtValorTotalAgua" placeholder="Valor del servicio del agua por consumo." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Valor del servicio de Gas-->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorTotalGas">Valor del consumo del servicio de gas:</label>
+                                                <input type="text" class="form-control" id="txtValorTotalGas" placeholder="Valor del servicio del gas por consumo." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Valor del servicio de Energia-->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorTotalEnergia">Valor del consumo del servicio de energía:</label>
+                                                <input type="text" class="form-control" id="txtValorTotalEnergia" placeholder="Valor del servicio del energía por consumo." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Valor  subtotal de los servicios -->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorSubTotal">Valor subtotal de los servicios:</label>
+                                                <input type="text" class="form-control" id="txtValorSubTotal" placeholder="Valor subtotal de los servicios." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Valor descuento -->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorDescuento">Valor descuento</label>
+                                                <input type="text" class="form-control" id="txtValorDescuento" placeholder="Valor descuento por consumo." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Valor recargp -->
+                                        <div class="col-md-3">
+                                            <div class="form-group">
+                                                <label for="txtValorDescuento">Valor recargo</label>
+                                                <input type="text" class="form-control" id="txtValorRecargo" placeholder="Valor recargo por consumo." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Valor a pagar -->
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="txtValorAPagar">Valor total a pagar</label>
+                                                <input type="text" class="form-control" id="txtValorAPagar" placeholder="Valor total a pagar." disabled>
+                                            </div>
+                                        </div>
+                                        <!-- Boton reservar
+                                            <div class="col-md-3">
+                                                <div class="form-group">
+                                                    <button type="button" id="btnReservar" class="btn-block btn-lg btn-primary">Reservar</button>
+                                                </div>
+                                            </div>
+                                         -->
+
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div id="dvMensaje" class=""></div>
+                                </div>
+                            </div>
+                        </form>                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="../Scripts/jquery-3.4.1.min.js"></script>
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../Scripts/bootstrap.bundle.min.js"></script>
+    <!-- Select2 -->
+    <script src="../Scripts/select2.min.js"></script>
+    <!-- InputMask -->
+    <script src="../Scripts/moment.min.js"></script>
+    <script src="../Scripts/jquery.inputmask.min.js"></script>
+    <!-- date-range-picker -->
+    <script src="../Scripts/daterangepicker.js"></script>
+    <!-- Tempusdominus Bootstrap 4 -->
+    <script src="../Scripts/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../Scripts/adminlte.js"></script>
+    <script>$(function () {
+            $("#dvMenu").load("../Paginas/Menu.html")
+            //Select2
+            $('#cboPaises').select2();
+            $('#cboEstados').select2();
+
+            //Select 2 con funciones especiales
+            $('#cboMultiple').select2({
+                theme: 'bootstrap4'
+            })
+            //Calendario
+            $('#dtmFecha').datetimepicker({
+                format: 'L'
+            });
+            //Fecha y hora
+            $('#dthFechaHora').datetimepicker({ icons: { time: 'far fa-clock' } });
+            $('[data-mask]').inputmask();
+            //Rango de horas
+            $('#RangoFechas').daterangepicker();
+            //Rango de fechas con hora
+            $('#RangoFechaHora').daterangepicker({
+                timePicker: true,
+                timePickerIncrement: 30,
+                locale: {
+                    format: 'MM/DD/YYYY hh:mm A'
+                }
+            });
+            //Timepicker
+            $('#tmHoraInicio').datetimepicker({
+                format: 'LT'
+            });
+        })</script>
+    <!-- Scripts página -->
+    <script src="Scripts/ServiciosEpm.js"></script>
+</body>
+</html>
