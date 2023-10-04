@@ -124,7 +124,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Paginas\Cliente.html" />
     <Content Include="Paginas\Empleado.html" />
+    <Content Include="Paginas\Scripts\Cliente.js" />
     <Content Include="Paginas\Scripts\Empleado.js" />
     <Content Include="Paginas\Scripts\TipoProducto.js" />
     <Content Include="Paginas\SeguroVehiculos.html" />
